@@ -83,31 +83,18 @@ print_one:
    int 0x10
    ret
 
-; mov_al:
-;    mov bx, ax
-;    mov al, [Convert_str_to_base_values + bx]
-;    call print_one
-;    ret
-
-; mov_dl:
-;    mov bx, dx
-;    mov al, [Convert_str_to_base_values + bx]
-;    call print_one
-;    ret
-
 VALUE_Start dw 0
 VALUE_add dw 0
 VALUE_hello db 'Hello, World!',13,10,'',0
 VALUE_newline db '',13,10,'',0
-VALUE_0 db 'Press any key to continue...',0
-hexdecimalVals db '0123456789ABCDEF'
-Value_output db 0,0
-Convert_str_int_buffer db 0,0,0,0,0,0,0,0,0,0
-Convert_str_to_base_buffer db 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+
+Convert_str_to_base_buffer times 41 db 0
 VALUE_buffer_depth dw 40
 VALUE_buffer_len dw 40
 
-Convert_base_val dw 16
+Convert_base_val dw 2
+User_base_val dw 10
+
 Convert_str_to_base_values db '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_'
 ;{VARIABLE}
 times 510-($-$$) db 0
